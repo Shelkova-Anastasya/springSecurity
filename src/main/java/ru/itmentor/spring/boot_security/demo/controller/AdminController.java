@@ -6,7 +6,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import ru.itmentor.spring.boot_security.demo.model.Role;
 import ru.itmentor.spring.boot_security.demo.model.User;
-import ru.itmentor.spring.boot_security.demo.service.RepositoryServiceImp;
+import ru.itmentor.spring.boot_security.demo.service.ServiceRoleImp;
 import ru.itmentor.spring.boot_security.demo.service.ServiceUser;
 import java.util.*;
 
@@ -17,11 +17,11 @@ import java.util.*;
 public class AdminController {
 
     private ServiceUser serviceUser;
-    private final RepositoryServiceImp repositoryService;
+    private final ServiceRoleImp repositoryService;
 
 
     @Autowired
-    public AdminController(RepositoryServiceImp repositoryService, ServiceUser serviceUser) {
+    public AdminController(ServiceRoleImp repositoryService, ServiceUser serviceUser) {
         this.serviceUser = serviceUser;
         this.repositoryService = repositoryService;
     }

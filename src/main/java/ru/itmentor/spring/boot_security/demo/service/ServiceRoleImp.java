@@ -2,40 +2,40 @@ package ru.itmentor.spring.boot_security.demo.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
-import ru.itmentor.spring.boot_security.demo.DAO.UserRepositoryImp;
+import ru.itmentor.spring.boot_security.demo.DAO.DaoRoleImp;
 import ru.itmentor.spring.boot_security.demo.model.Role;
 import ru.itmentor.spring.boot_security.demo.model.User;
 
 import java.util.Set;
 
 @Service
-public class RepositoryServiceImp implements RepositoryService{
+public class ServiceRoleImp implements ServiceRole {
 
-private final UserRepositoryImp userRepositoryImp;
+private final DaoRoleImp daoRoleImp;
     @Autowired
-    public RepositoryServiceImp(UserRepositoryImp userRepositoryImp) {
-        this.userRepositoryImp = userRepositoryImp;
+    public ServiceRoleImp(DaoRoleImp daoRoleImp) {
+        this.daoRoleImp = daoRoleImp;
     }
 
     @Override
     public void setUserRoles(Long userId, Set<Role> newRoles) {
-        userRepositoryImp.setUserRoles(userId, newRoles);
+        daoRoleImp.setUserRoles(userId, newRoles);
 
     }
     public void removeRoles(Long userId, Set<Role> rolesToRemove){
-        userRepositoryImp.removeRoles(userId, rolesToRemove);
+        daoRoleImp.removeRoles(userId, rolesToRemove);
     }
     @Override
     public UserDetails loadUserByUsername(String email) {
-        return userRepositoryImp.loadUserByUsername(email);
+        return daoRoleImp.loadUserByUsername(email);
     }
 
     @Override
     public void deleteById(Long id) {
-        userRepositoryImp.deleteById(id);
+        daoRoleImp.deleteById(id);
     }
 
     public User getInfo(UserDetails currentUserDetails){
-        return userRepositoryImp.getInfo(currentUserDetails);
+        return daoRoleImp.getInfo(currentUserDetails);
     }
 }

@@ -10,7 +10,7 @@ import java.util.Set;
 public interface ServiceUser {
     List<User> getUsers();
     void saveUser(User user);
-  void updateUser(User user);
+    void updateUser(User user);
 
     User getUser(Long id);
 
